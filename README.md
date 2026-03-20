@@ -213,6 +213,18 @@ cd cpp_module_04/ex02 && make && ./Brain
 cd cpp_module_04/ex03 && make && ./Interface_recap
 ~~~
 
+## Binary Research: VTable And VBase Manipulation
+
+During my systems research at 1337, I conducted deep-dive experiments into the memory layout of C++ objects, specifically focusing on how the compiler handles dynamic dispatch and multiple inheritance.
+
+### VTable Hijacking
+
+I developed a proof of concept where I manually calculated the vptr offset and used pointer arithmetic to overwrite the virtual method table at runtime. This allowed me to redirect execution flow and bypass access modifiers, demonstrating core logic relevant to devirtualization workflows in reverse engineering.
+
+### The Diamond Problem And VBase Pointers
+
+I successfully mapped and manipulated the vbase (virtual base) pointer within complex inheritance structures. By understanding how the compiler uses offsets to locate virtual base classes in memory, I was able to manually resolve the diamond problem at the byte level.
+
 ## Notes
 
 - This repo is structured for learning progression, so each exercise is intentionally self-contained.
